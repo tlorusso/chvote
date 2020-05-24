@@ -1,4 +1,9 @@
-steps:
+name: test
+'on': push
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
 - uses: actions/checkout@master
 - uses: r-lib/actions/setup-r@v1
   with:
