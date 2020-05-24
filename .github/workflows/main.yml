@@ -8,4 +8,11 @@ jobs:
         uses: actions/checkout@master
       - name: run script
         run: |-
-          Rscript -e "write.csv(head(mtcars))"
+          Rscript -e "write.csv(head(mtcars),'hello.csv')"
+      - name: test run
+        if: github.ref == 'refs/heads/master'
+        uses: maxheld83/ghpages@v0.2.0
+        env:
+          BUILD_DIR: $DEPLOY_PATH
+          GH_PAT: ${{ secrets.GH_PAT }}
+    container: rocker/verse:latest
