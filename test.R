@@ -1,0 +1,1 @@
+write.csv(head(mtcars),"mtcars.csv")
