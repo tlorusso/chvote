@@ -8,4 +8,4 @@ jobs:
         uses: actions/checkout@master
       - name: run script
         run: |-
-          Rscript -e "write.csv(head(mtcars),"hello.csv")"
+          Rscript -e "write.csv(head(mtcars))"
