@@ -10,8 +10,7 @@ jobs:
         r-version: '3.5.3' # The R version to download (if necessary) and use.
     - run: Rscript -e 'write.csv(head(mtcars),"mtcars.csv")'
     - name: Commit results
-        run: |
+      run: |
           git commit mtcars.csv -m 'commit data' || echo "No changes to commit"
           git push origin || echo "No changes to commit"
-    
     
