@@ -1,10 +1,8 @@
-name: Readme
+name: render Readme
 on:
   push:
     paths:
       - README.Rmd
-
-name: Render README
 
 jobs:
   render:
@@ -19,6 +17,12 @@ jobs:
       - name: Render README
         run: Rscript -e 'rmarkdown::render("README.Rmd")'
       - name: Commit results
-        run: |
-          git commit README.md -m 'Re-build README.Rmd' || echo "No changes to commit"
-          git push origin || echo "No changes to commit"
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add ...
+        git commit -m "Add changes" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
