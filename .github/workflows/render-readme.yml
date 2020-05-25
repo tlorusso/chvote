@@ -1,3 +1,4 @@
+name: Readme
 on:
   push:
     paths:
