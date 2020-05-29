@@ -1,0 +1,11 @@
+name: test
+'on': push
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@master
+    - uses: r-lib/actions/setup-r@v1
+      with:
+        r-version: '3.5.3' # The R version to download (if necessary) and use.
+    - run: Rscript -e 'source("check_equal.R")'
