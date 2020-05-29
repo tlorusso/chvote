@@ -1,1 +1,1 @@
-write.csv(head(mtcars),"mtcars.csv")
+write.csv("mtcars.csv")
